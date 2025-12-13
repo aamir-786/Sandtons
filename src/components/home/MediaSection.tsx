@@ -1,0 +1,99 @@
+import { motion } from "framer-motion";
+import { Play, Headphones, BookOpen } from "lucide-react";
+
+const mediaItems = [
+  {
+    type: "video",
+    icon: Play,
+    title: "How to Get Your NIE Number",
+    description: "Step-by-step video guide",
+    image: "https://images.unsplash.com/photo-1512917774080-9991f1c4c750?w=400&h=250&fit=crop",
+    duration: "12 min",
+  },
+  {
+    type: "podcast",
+    icon: Headphones,
+    title: "Expat Stories: Life in Barcelona",
+    description: "Real experiences from Americans",
+    image: "https://images.unsplash.com/photo-1583422409516-2895a77efded?w=400&h=250&fit=crop",
+    duration: "45 min",
+  },
+  {
+    type: "article",
+    icon: BookOpen,
+    title: "2024 Spain Visa Updates",
+    description: "Latest immigration changes",
+    image: "https://images.unsplash.com/photo-1434725039720-aaad6dd32dfe?w=400&h=250&fit=crop",
+    duration: "8 min read",
+  },
+  {
+    type: "video",
+    icon: Play,
+    title: "Opening a Spanish Bank Account",
+    description: "Everything you need to know",
+    image: "https://images.unsplash.com/photo-1554224155-6726b3ff858f?w=400&h=250&fit=crop",
+    duration: "15 min",
+  },
+];
+
+export function MediaSection() {
+  return (
+    <section className="py-20 bg-card">
+      <div className="container mx-auto px-4">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          className="text-center mb-14"
+        >
+          <span className="text-primary font-semibold text-sm uppercase tracking-wider mb-4 block">
+            Media
+          </span>
+          <h2 className="text-3xl md:text-4xl font-bold text-foreground">
+            Watch • Listen • Read
+          </h2>
+        </motion.div>
+
+        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 max-w-6xl mx-auto">
+          {mediaItems.map((item, index) => (
+            <motion.a
+              key={item.title}
+              href="#"
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: index * 0.1 }}
+              className="group bg-background rounded-xl overflow-hidden border border-border hover:border-primary/30 transition-all card-hover"
+            >
+              <div className="relative">
+                <img
+                  src={item.image}
+                  alt={item.title}
+                  className="w-full h-40 object-cover"
+                />
+                <div className="absolute inset-0 bg-foreground/40 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
+                  <div className="w-14 h-14 rounded-full bg-primary flex items-center justify-center">
+                    <item.icon className="w-6 h-6 text-primary-foreground" />
+                  </div>
+                </div>
+                <div className="absolute top-3 left-3">
+                  <span className="px-2 py-1 rounded-md bg-background/90 text-xs font-medium text-foreground">
+                    {item.duration}
+                  </span>
+                </div>
+              </div>
+              <div className="p-4">
+                <h3 className="font-semibold text-foreground group-hover:text-primary transition-colors line-clamp-2 mb-1">
+                  {item.title}
+                </h3>
+                <p className="text-sm text-muted-foreground">
+                  {item.description}
+                </p>
+              </div>
+            </motion.a>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
