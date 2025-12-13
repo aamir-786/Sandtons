@@ -8,6 +8,8 @@ import VisaQuiz from "./pages/VisaQuiz";
 import ReadinessCheck from "./pages/ReadinessCheck";
 import CostCalculator from "./pages/CostCalculator";
 import RegionFinder from "./pages/RegionFinder";
+import About from "./pages/About";
+import Contact from "./pages/Contact";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -24,6 +26,8 @@ const App = () => (
           <Route path="/readiness-check" element={<ReadinessCheck />} />
           <Route path="/cost-calculator" element={<CostCalculator />} />
           <Route path="/region-finder" element={<RegionFinder />} />
+          <Route path="/about" element={<About />} />
+          <Route path="/contact" element={<Contact />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>
