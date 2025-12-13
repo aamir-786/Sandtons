@@ -1,8 +1,7 @@
-import { motion, useScroll, useTransform } from "framer-motion";
+import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import { ArrowRight, Sun, MapPin, Users } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { useRef } from "react";
 import spainHeroImage from "@/assets/spain-hero.jpg";
 
 const stats = [
@@ -11,42 +10,17 @@ const stats = [
   { icon: MapPin, value: "17", label: "Regions to Explore" },
 ];
 
-const regionBadges = [
-  { name: "Barcelona", emoji: "🏛️", position: "top-1/4 -right-16", delay: 0 },
-  { name: "Madrid", emoji: "👑", position: "top-1/2 -right-20", delay: 1.5 },
-  { name: "Valencia", emoji: "🍊", position: "bottom-1/4 -right-14", delay: 3 },
-  { name: "Málaga", emoji: "🌴", position: "top-1/3 -left-14", delay: 0.5 },
-  { name: "Sevilla", emoji: "💃", position: "bottom-1/3 -left-16", delay: 2 },
-];
-
 export function Hero() {
-  const sectionRef = useRef<HTMLElement>(null);
-  const { scrollYProgress } = useScroll({
-    target: sectionRef,
-    offset: ["start start", "end start"],
-  });
-
-  const backgroundY = useTransform(scrollYProgress, [0, 1], ["0%", "30%"]);
-  const imageY = useTransform(scrollYProgress, [0, 1], ["0%", "15%"]);
-  const contentY = useTransform(scrollYProgress, [0, 1], ["0%", "10%"]);
-  const opacity = useTransform(scrollYProgress, [0, 0.8], [1, 0]);
-
   return (
-    <section
-      ref={sectionRef}
-      className="relative min-h-screen flex items-center overflow-hidden bg-gradient-to-br from-primary via-terracotta-dark to-primary"
-    >
-      {/* Parallax Background Pattern */}
-      <motion.div style={{ y: backgroundY }} className="absolute inset-0 opacity-10">
+    <section className="relative min-h-screen flex items-center overflow-hidden bg-gradient-to-br from-primary via-terracotta-dark to-primary">
+      {/* Background Pattern */}
+      <div className="absolute inset-0 opacity-10">
         <div className="absolute top-20 left-10 w-72 h-72 bg-primary-foreground rounded-full blur-3xl" />
         <div className="absolute bottom-20 right-10 w-96 h-96 bg-olive rounded-full blur-3xl" />
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-primary-foreground/5 rounded-full" />
-      </motion.div>
+      </div>
 
-      <motion.div
-        style={{ y: contentY, opacity }}
-        className="container mx-auto px-4 pt-32 pb-20 relative z-10"
-      >
+      <div className="container mx-auto px-4 pt-32 pb-20 relative z-10">
         <div className="grid lg:grid-cols-2 gap-12 items-center">
           {/* Content */}
           <motion.div
@@ -133,9 +107,8 @@ export function Hero() {
             </div>
           </motion.div>
 
-          {/* Visual Element - Creative Image Display with Parallax */}
+          {/* Visual Element - Creative Image Display */}
           <motion.div
-            style={{ y: imageY }}
             initial={{ opacity: 0, scale: 0.9 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.6, delay: 0.3 }}
@@ -143,12 +116,12 @@ export function Hero() {
           >
             <div className="relative w-full aspect-square max-w-lg mx-auto">
               {/* Outer Decorative Ring */}
-              <motion.div
+              <motion.div 
                 animate={{ rotate: 360 }}
                 transition={{ duration: 60, repeat: Infinity, ease: "linear" }}
                 className="absolute inset-0 rounded-full border-2 border-dashed border-primary-foreground/20"
               />
-
+              
               {/* Second Ring with Gradient */}
               <div className="absolute inset-4 rounded-full bg-gradient-to-br from-primary-foreground/10 to-transparent p-1">
                 <div className="w-full h-full rounded-full bg-gradient-to-br from-olive/20 to-primary/30" />
@@ -175,11 +148,11 @@ export function Hero() {
                 </div>
               </motion.div>
 
-              {/* Floating Info Cards */}
+              {/* Floating Cards */}
               <motion.div
                 animate={{ y: [0, -10, 0] }}
                 transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
-                className="absolute -top-4 right-0 bg-card rounded-xl shadow-xl p-4 border border-border backdrop-blur-sm z-10"
+                className="absolute -top-4 right-0 bg-card rounded-xl shadow-xl p-4 border border-border backdrop-blur-sm"
               >
                 <div className="flex items-center gap-3">
                   <div className="w-10 h-10 rounded-lg bg-olive/20 flex items-center justify-center">
@@ -195,7 +168,7 @@ export function Hero() {
               <motion.div
                 animate={{ y: [0, 10, 0] }}
                 transition={{ duration: 5, repeat: Infinity, ease: "easeInOut", delay: 1 }}
-                className="absolute bottom-10 -left-8 bg-card rounded-xl shadow-xl p-4 border border-border backdrop-blur-sm z-10"
+                className="absolute bottom-10 -left-8 bg-card rounded-xl shadow-xl p-4 border border-border backdrop-blur-sm"
               >
                 <div className="flex items-center gap-3">
                   <div className="w-10 h-10 rounded-lg bg-primary/20 flex items-center justify-center">
@@ -208,38 +181,18 @@ export function Hero() {
                 </div>
               </motion.div>
 
-              {/* Region Badges */}
-              {regionBadges.map((badge) => (
-                <motion.div
-                  key={badge.name}
-                  initial={{ opacity: 0, scale: 0 }}
-                  animate={{ opacity: 1, scale: 1 }}
-                  transition={{ delay: 0.8 + badge.delay * 0.2, type: "spring" }}
-                  whileHover={{ scale: 1.1 }}
-                  className={`absolute ${badge.position} z-10`}
-                >
-                  <motion.div
-                    animate={{
-                      y: [0, badge.delay % 2 === 0 ? -6 : 6, 0],
-                      x: [0, badge.delay % 3 === 0 ? 4 : -4, 0],
-                    }}
-                    transition={{
-                      duration: 4 + badge.delay,
-                      repeat: Infinity,
-                      ease: "easeInOut",
-                      delay: badge.delay * 0.3,
-                    }}
-                    className="bg-gradient-to-r from-olive to-olive/80 text-olive-foreground rounded-full px-3 py-1.5 shadow-lg text-sm font-medium flex items-center gap-1.5 cursor-pointer hover:shadow-xl transition-shadow"
-                  >
-                    <span>{badge.emoji}</span>
-                    <span>{badge.name}</span>
-                  </motion.div>
-                </motion.div>
-              ))}
+              {/* Extra floating element */}
+              <motion.div
+                animate={{ x: [0, 5, 0], y: [0, -5, 0] }}
+                transition={{ duration: 7, repeat: Infinity, ease: "easeInOut", delay: 2 }}
+                className="absolute top-1/3 -right-12 bg-olive text-olive-foreground rounded-full px-4 py-2 shadow-lg text-sm font-medium"
+              >
+                🌴 Costa del Sol
+              </motion.div>
             </div>
           </motion.div>
         </div>
-      </motion.div>
+      </div>
 
       {/* Bottom Wave */}
       <div className="absolute bottom-0 left-0 right-0">
