@@ -2,6 +2,7 @@ import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import { ArrowRight, Sun, MapPin, Users } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import spainHeroImage from "@/assets/spain-hero.jpg";
 
 const stats = [
   { icon: Users, value: "2,500+", label: "Happy Expats" },
@@ -106,7 +107,7 @@ export function Hero() {
             </div>
           </motion.div>
 
-          {/* Visual Element */}
+          {/* Visual Element - Creative Image Display */}
           <motion.div
             initial={{ opacity: 0, scale: 0.9 }}
             animate={{ opacity: 1, scale: 1 }}
@@ -114,23 +115,44 @@ export function Hero() {
             className="relative hidden lg:block"
           >
             <div className="relative w-full aspect-square max-w-lg mx-auto">
-              {/* Main Circle */}
-              <div className="absolute inset-0 rounded-full bg-gradient-to-br from-primary-foreground/20 to-primary-foreground/5 backdrop-blur-sm border border-primary-foreground/20 animate-float">
-                <div className="absolute inset-8 rounded-full bg-gradient-to-br from-olive/30 to-olive/10 flex items-center justify-center">
-                  <div className="text-center">
-                    <div className="text-6xl mb-2">🇪🇸</div>
-                    <div className="text-primary-foreground font-semibold text-lg">
-                      Hola!
-                    </div>
-                  </div>
-                </div>
+              {/* Outer Decorative Ring */}
+              <motion.div 
+                animate={{ rotate: 360 }}
+                transition={{ duration: 60, repeat: Infinity, ease: "linear" }}
+                className="absolute inset-0 rounded-full border-2 border-dashed border-primary-foreground/20"
+              />
+              
+              {/* Second Ring with Gradient */}
+              <div className="absolute inset-4 rounded-full bg-gradient-to-br from-primary-foreground/10 to-transparent p-1">
+                <div className="w-full h-full rounded-full bg-gradient-to-br from-olive/20 to-primary/30" />
               </div>
+
+              {/* Main Image Circle */}
+              <motion.div
+                animate={{ y: [0, -8, 0] }}
+                transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
+                className="absolute inset-8 rounded-full overflow-hidden shadow-2xl ring-4 ring-primary-foreground/20"
+              >
+                <img
+                  src={spainHeroImage}
+                  alt="Beautiful Spanish coastal town with white Mediterranean architecture"
+                  className="w-full h-full object-cover scale-110 hover:scale-125 transition-transform duration-700"
+                />
+                {/* Overlay Gradient */}
+                <div className="absolute inset-0 bg-gradient-to-t from-primary/40 via-transparent to-transparent" />
+                {/* Text Overlay */}
+                <div className="absolute bottom-6 left-1/2 -translate-x-1/2 text-center">
+                  <span className="text-primary-foreground font-bold text-xl drop-shadow-lg">
+                    ¡Bienvenidos!
+                  </span>
+                </div>
+              </motion.div>
 
               {/* Floating Cards */}
               <motion.div
                 animate={{ y: [0, -10, 0] }}
                 transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
-                className="absolute -top-4 right-0 bg-card rounded-xl shadow-lg p-4 border border-border"
+                className="absolute -top-4 right-0 bg-card rounded-xl shadow-xl p-4 border border-border backdrop-blur-sm"
               >
                 <div className="flex items-center gap-3">
                   <div className="w-10 h-10 rounded-lg bg-olive/20 flex items-center justify-center">
@@ -146,7 +168,7 @@ export function Hero() {
               <motion.div
                 animate={{ y: [0, 10, 0] }}
                 transition={{ duration: 5, repeat: Infinity, ease: "easeInOut", delay: 1 }}
-                className="absolute bottom-10 -left-8 bg-card rounded-xl shadow-lg p-4 border border-border"
+                className="absolute bottom-10 -left-8 bg-card rounded-xl shadow-xl p-4 border border-border backdrop-blur-sm"
               >
                 <div className="flex items-center gap-3">
                   <div className="w-10 h-10 rounded-lg bg-primary/20 flex items-center justify-center">
@@ -157,6 +179,15 @@ export function Hero() {
                     <div className="text-xs text-muted-foreground">17 unique options</div>
                   </div>
                 </div>
+              </motion.div>
+
+              {/* Extra floating element */}
+              <motion.div
+                animate={{ x: [0, 5, 0], y: [0, -5, 0] }}
+                transition={{ duration: 7, repeat: Infinity, ease: "easeInOut", delay: 2 }}
+                className="absolute top-1/3 -right-12 bg-olive text-olive-foreground rounded-full px-4 py-2 shadow-lg text-sm font-medium"
+              >
+                🌴 Costa del Sol
               </motion.div>
             </div>
           </motion.div>
