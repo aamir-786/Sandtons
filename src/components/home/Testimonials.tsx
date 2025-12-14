@@ -3,50 +3,50 @@ import { Star, Quote } from "lucide-react";
 
 const testimonials = [
   {
-    name: "Sarah M.",
-    location: "From Texas to Barcelona",
-    image: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=100&h=100&fit=crop&crop=face",
-    quote: "The visa quiz instantly told me I qualified for the Digital Nomad Visa. Sandtons made the entire process crystal clear.",
+    name: "David & Maria Thompson",
+    location: "From Texas to Marbella",
+    image: "https://images.unsplash.com/photo-1522075469751-3a6694fb2f61?w=100&h=100&fit=crop&crop=face",
+    quote: "Sandtons made our Spanish mortgage process seamless. They found us an incredible rate and handled all the paperwork in both languages.",
     rating: 5,
   },
   {
-    name: "Michael R.",
+    name: "Robert Johnson",
     location: "From California to Valencia",
     image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&h=100&fit=crop&crop=face",
-    quote: "The cost calculator was a game-changer. I had no idea how much further my savings would go in Spain!",
+    quote: "As an investor, I needed a team that understood both markets. They secured 70% LTV financing for my rental property in Valencia.",
     rating: 5,
   },
   {
-    name: "Jennifer L.",
-    location: "From New York to Madrid",
+    name: "Susan Miller",
+    location: "From Florida to Costa Brava",
     image: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=100&h=100&fit=crop&crop=face",
-    quote: "I was overwhelmed by visa options until I found Sandtons. Their readiness check gave me a clear action plan.",
+    quote: "Retiring to Spain seemed overwhelming until I found Sandtons. They guided me through everything from mortgage to residency.",
     rating: 5,
   },
 ];
 
 export function Testimonials() {
   return (
-    <section className="py-24 bg-background">
+    <section className="py-20 bg-muted/30">
       <div className="container mx-auto px-4">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="text-center max-w-2xl mx-auto mb-16"
+          className="text-center max-w-2xl mx-auto mb-14"
         >
           <span className="text-primary font-semibold text-sm uppercase tracking-wider mb-4 block">
             Success Stories
           </span>
           <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
-            Join Thousands of Happy Expats
+            What Our Clients Say
           </h2>
           <p className="text-muted-foreground text-lg">
-            Real stories from Americans who made the move to Spain with our guidance.
+            Real stories from Americans who purchased their dream Spanish properties with our help.
           </p>
         </motion.div>
 
-        <div className="grid md:grid-cols-3 gap-8">
+        <div className="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">
           {testimonials.map((testimonial, index) => (
             <motion.div
               key={testimonial.name}
@@ -71,7 +71,7 @@ export function Testimonials() {
               </div>
 
               {/* Quote */}
-              <p className="text-card-foreground leading-relaxed mb-6">
+              <p className="text-card-foreground leading-relaxed mb-6 text-sm">
                 "{testimonial.quote}"
               </p>
 
@@ -83,10 +83,10 @@ export function Testimonials() {
                   className="w-12 h-12 rounded-full object-cover"
                 />
                 <div>
-                  <div className="font-semibold text-card-foreground">
+                  <div className="font-semibold text-card-foreground text-sm">
                     {testimonial.name}
                   </div>
-                  <div className="text-sm text-muted-foreground">
+                  <div className="text-xs text-muted-foreground">
                     {testimonial.location}
                   </div>
                 </div>

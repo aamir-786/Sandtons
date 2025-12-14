@@ -1,44 +1,44 @@
 import { motion } from "framer-motion";
 import { Check, X } from "lucide-react";
 
-const visaTypes = [
+const mortgageTypes = [
   {
-    name: "Digital Nomad",
-    duration: "Up to 5 years",
-    workAllowed: true,
-    minIncome: "€2,500/month",
-    processingTime: "2-4 months",
-    ideal: "Remote workers",
+    name: "Fixed Rate",
+    rate: "3.5-4.5%",
+    ltv: "Up to 70%",
+    term: "15-30 years",
+    bestFor: "Stability seekers",
+    pros: true,
   },
   {
-    name: "Non-Lucrative",
-    duration: "1 year (renewable)",
-    workAllowed: false,
-    minIncome: "€2,400/month passive",
-    processingTime: "1-3 months",
-    ideal: "Retirees",
+    name: "Variable Rate",
+    rate: "Euribor + 1%",
+    ltv: "Up to 70%",
+    term: "15-30 years",
+    bestFor: "Risk tolerant",
+    pros: true,
   },
   {
-    name: "Self-Employed",
-    duration: "1 year (renewable)",
-    workAllowed: true,
-    minIncome: "Business plan required",
-    processingTime: "3-6 months",
-    ideal: "Entrepreneurs",
+    name: "Mixed Rate",
+    rate: "3% then variable",
+    ltv: "Up to 70%",
+    term: "15-30 years",
+    bestFor: "Balanced approach",
+    pros: true,
   },
   {
-    name: "Golden Visa",
-    duration: "2 years (renewable)",
-    workAllowed: true,
-    minIncome: "€500k+ investment",
-    processingTime: "2-3 months",
-    ideal: "Investors",
+    name: "Interest Only",
+    rate: "4-5%",
+    ltv: "Up to 60%",
+    term: "5-10 years",
+    bestFor: "Investors",
+    pros: false,
   },
 ];
 
 export function ComparisonTable() {
   return (
-    <section className="py-20 bg-muted/30">
+    <section className="py-20 bg-background">
       <div className="container mx-auto px-4">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -47,10 +47,10 @@ export function ComparisonTable() {
           className="text-center mb-14"
         >
           <span className="text-primary font-semibold text-sm uppercase tracking-wider mb-4 block">
-            Visa Comparison
+            Mortgage Types
           </span>
           <h2 className="text-3xl md:text-4xl font-bold text-foreground">
-            Spain Visa Types & Requirements
+            Spain Mortgage Types & Costs
           </h2>
         </motion.div>
 
@@ -63,40 +63,45 @@ export function ComparisonTable() {
           <table className="w-full bg-card rounded-2xl border border-border overflow-hidden">
             <thead>
               <tr className="bg-primary text-primary-foreground">
-                <th className="px-6 py-4 text-left font-semibold">Visa Type</th>
-                <th className="px-6 py-4 text-left font-semibold">Duration</th>
-                <th className="px-6 py-4 text-center font-semibold">Work Allowed</th>
-                <th className="px-6 py-4 text-left font-semibold">Min. Income</th>
-                <th className="px-6 py-4 text-left font-semibold">Processing</th>
-                <th className="px-6 py-4 text-left font-semibold">Ideal For</th>
+                <th className="px-6 py-4 text-left font-semibold">Mortgage Type</th>
+                <th className="px-6 py-4 text-left font-semibold">Interest Rate</th>
+                <th className="px-6 py-4 text-left font-semibold">Max LTV</th>
+                <th className="px-6 py-4 text-left font-semibold">Term</th>
+                <th className="px-6 py-4 text-left font-semibold">Best For</th>
               </tr>
             </thead>
             <tbody>
-              {visaTypes.map((visa, index) => (
+              {mortgageTypes.map((mortgage, index) => (
                 <tr
-                  key={visa.name}
-                  className={index % 2 === 0 ? "bg-card" : "bg-muted/50"}
+                  key={mortgage.name}
+                  className={index % 2 === 0 ? "bg-card" : "bg-muted/30"}
                 >
-                  <td className="px-6 py-4 font-semibold text-card-foreground">{visa.name}</td>
-                  <td className="px-6 py-4 text-muted-foreground">{visa.duration}</td>
-                  <td className="px-6 py-4 text-center">
-                    {visa.workAllowed ? (
-                      <Check className="w-5 h-5 text-olive mx-auto" />
-                    ) : (
-                      <X className="w-5 h-5 text-destructive mx-auto" />
-                    )}
-                  </td>
-                  <td className="px-6 py-4 text-muted-foreground">{visa.minIncome}</td>
-                  <td className="px-6 py-4 text-muted-foreground">{visa.processingTime}</td>
+                  <td className="px-6 py-4 font-semibold text-card-foreground">{mortgage.name}</td>
+                  <td className="px-6 py-4 text-muted-foreground">{mortgage.rate}</td>
+                  <td className="px-6 py-4 text-muted-foreground">{mortgage.ltv}</td>
+                  <td className="px-6 py-4 text-muted-foreground">{mortgage.term}</td>
                   <td className="px-6 py-4">
                     <span className="px-3 py-1 rounded-full bg-primary/10 text-primary text-sm font-medium">
-                      {visa.ideal}
+                      {mortgage.bestFor}
                     </span>
                   </td>
                 </tr>
               ))}
             </tbody>
           </table>
+        </motion.div>
+
+        {/* Additional Info */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          className="max-w-3xl mx-auto mt-8 text-center"
+        >
+          <p className="text-muted-foreground text-sm">
+            * Rates and terms are indicative and vary by lender. Non-resident buyers typically qualify for 60-70% LTV.
+            Contact us for personalized quotes.
+          </p>
         </motion.div>
       </div>
     </section>

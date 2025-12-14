@@ -5,28 +5,28 @@ import { cn } from "@/lib/utils";
 
 const faqs = [
   {
-    question: "How long does the visa process take?",
-    answer: "Processing times vary by visa type. Digital Nomad visas typically take 2-4 months, Non-Lucrative visas 1-3 months, and Golden Visas 2-3 months. We recommend starting the process 4-6 months before your planned move date.",
+    question: "Can Americans get a mortgage in Spain?",
+    answer: "Yes! Non-resident Americans can obtain Spanish mortgages. Typically, lenders offer 60-70% LTV (loan-to-value) for non-residents, compared to up to 80% for residents. You'll need to provide proof of income, tax returns, and other standard documentation.",
   },
   {
-    question: "Do I need to speak Spanish to move to Spain?",
-    answer: "While not legally required for most visas, speaking Spanish significantly improves your quality of life. Many expats start with basic Spanish and improve after arrival. Major cities have large English-speaking communities and international services.",
+    question: "What are the typical mortgage rates for non-residents?",
+    answer: "Current rates for non-residents typically range from 3.5% to 5% for fixed-rate mortgages, depending on the lender and your financial profile. Variable rates start around Euribor + 1-2%. We help you find the most competitive rates available.",
   },
   {
-    question: "Can I work in Spain with a Non-Lucrative visa?",
-    answer: "No, the Non-Lucrative visa specifically prohibits work in Spain. If you want to work, consider the Digital Nomad visa (for remote work) or Self-Employed visa (for freelancing/business in Spain).",
+    question: "What documents do I need for a Spanish mortgage?",
+    answer: "You'll typically need: valid passport, proof of income (pay stubs, tax returns), bank statements (last 6-12 months), credit report, existing debt documentation, and property valuation. We guide you through preparing all required documents.",
   },
   {
-    question: "What is an NIE and when do I need it?",
-    answer: "The NIE (Número de Identificación de Extranjero) is your foreigner identification number. You'll need it for almost everything in Spain: opening a bank account, signing contracts, paying taxes, and more. You should obtain it as soon as possible after arriving.",
+    question: "How long does the mortgage process take?",
+    answer: "From application to completion, expect 4-8 weeks for mortgage approval. The full property purchase process, including finding a property and completing legal requirements, typically takes 2-4 months.",
   },
   {
-    question: "How much money do I need to move to Spain?",
-    answer: "Requirements vary by visa type. Non-Lucrative visas require proof of €2,400/month passive income. Digital Nomad visas require €2,500/month. Beyond visa requirements, we recommend 3-6 months of living expenses as a safety buffer.",
+    question: "What additional costs should I expect?",
+    answer: "Beyond the purchase price, budget for: property transfer tax (6-10%), notary fees (0.5-1%), registration fees (0.5-1%), legal fees (1-2%), and mortgage arrangement fees (0.5-1%). We provide detailed cost breakdowns with our calculator.",
   },
   {
-    question: "Is healthcare free in Spain?",
-    answer: "Spain has excellent public healthcare, but access depends on your visa and residency status. Most visa applicants need private health insurance initially. After becoming a tax resident, you may access the public system. Many expats maintain private insurance for faster access.",
+    question: "Do I need a Spanish bank account?",
+    answer: "Yes, you'll need a Spanish bank account for mortgage payments and to cover ongoing property expenses. We can assist you in opening an account remotely or help coordinate with Spanish banks during your property purchase.",
   },
 ];
 

@@ -4,7 +4,7 @@ import { Button } from "@/components/ui/button";
 
 export function NewsletterSection() {
   return (
-    <section className="py-16 bg-gradient-to-r from-primary to-terracotta-dark">
+    <section className="py-16 bg-primary">
       <div className="container mx-auto px-4">
         <div className="max-w-4xl mx-auto flex flex-col lg:flex-row items-center gap-8 lg:gap-16">
           <motion.div
@@ -21,7 +21,7 @@ export function NewsletterSection() {
               Subscribe to Our Newsletter
             </h2>
             <p className="text-primary-foreground/80 text-base leading-relaxed">
-              Get the latest tips, visa updates, and insider guides delivered to your inbox weekly.
+              Get the latest mortgage rates, market updates, and insider tips delivered weekly.
             </p>
           </motion.div>
 
