@@ -1,44 +1,44 @@
 import { motion } from "framer-motion";
-import { Play, Headphones, BookOpen } from "lucide-react";
+import { Play, Headphones, BookOpen, ExternalLink } from "lucide-react";
 
 const mediaItems = [
   {
     type: "video",
     icon: Play,
-    title: "How to Get Your NIE Number",
+    title: "How to Apply for a Spanish Mortgage",
     description: "Step-by-step video guide",
-    image: "https://images.unsplash.com/photo-1512917774080-9991f1c4c750?w=400&h=250&fit=crop",
-    duration: "12 min",
+    image: "https://images.unsplash.com/photo-1560518883-ce09059eeffa?w=400&h=250&fit=crop",
+    duration: "15 min",
   },
   {
     type: "podcast",
     icon: Headphones,
-    title: "Expat Stories: Life in Barcelona",
+    title: "Expat Stories: Buying Property in Spain",
     description: "Real experiences from Americans",
-    image: "https://images.unsplash.com/photo-1583422409516-2895a77efded?w=400&h=250&fit=crop",
-    duration: "45 min",
+    image: "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=400&h=250&fit=crop",
+    duration: "32 min",
   },
   {
     type: "article",
     icon: BookOpen,
-    title: "2024 Spain Visa Updates",
-    description: "Latest immigration changes",
+    title: "2024 Spanish Mortgage Guide",
+    description: "Complete guide for US buyers",
     image: "https://images.unsplash.com/photo-1434725039720-aaad6dd32dfe?w=400&h=250&fit=crop",
-    duration: "8 min read",
+    duration: "10 min read",
   },
   {
     type: "video",
     icon: Play,
-    title: "Opening a Spanish Bank Account",
+    title: "Understanding Spanish Property Taxes",
     description: "Everything you need to know",
-    image: "https://images.unsplash.com/photo-1554224155-6726b3ff858f?w=400&h=250&fit=crop",
-    duration: "15 min",
+    image: "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=400&h=250&fit=crop",
+    duration: "12 min",
   },
 ];
 
 export function MediaSection() {
   return (
-    <section className="py-20 bg-card">
+    <section className="py-20 bg-muted/50">
       <div className="container mx-auto px-4">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -63,7 +63,7 @@ export function MediaSection() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: index * 0.1 }}
-              className="group bg-background rounded-xl overflow-hidden border border-border hover:border-primary/30 transition-all card-hover"
+              className="group bg-card rounded-xl overflow-hidden border border-border hover:border-primary/30 transition-all card-hover"
             >
               <div className="relative">
                 <img
@@ -77,16 +77,16 @@ export function MediaSection() {
                   </div>
                 </div>
                 <div className="absolute top-3 left-3">
-                  <span className="px-2 py-1 rounded-md bg-background/90 text-xs font-medium text-foreground">
+                  <span className="px-2 py-1 rounded-md bg-card/90 text-xs font-medium text-foreground">
                     {item.duration}
                   </span>
                 </div>
               </div>
               <div className="p-4">
-                <h3 className="font-semibold text-foreground group-hover:text-primary transition-colors line-clamp-2 mb-1">
+                <h3 className="font-semibold text-foreground group-hover:text-primary transition-colors line-clamp-2 mb-1 text-sm">
                   {item.title}
                 </h3>
-                <p className="text-sm text-muted-foreground">
+                <p className="text-xs text-muted-foreground">
                   {item.description}
                 </p>
               </div>

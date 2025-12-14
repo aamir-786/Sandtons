@@ -1,42 +1,47 @@
 import { motion } from "framer-motion";
-import { FileCheck, Search, Home, Plane, CheckCircle } from "lucide-react";
+import { FileCheck, Search, Home, FileText, CheckCircle } from "lucide-react";
 
 const steps = [
   {
     number: "01",
     icon: Search,
-    title: "Research & Planning",
-    description: "Understand visa options, costs, and choose your ideal region using our free tools.",
+    title: "Initial Consultation",
+    description: "We assess your financial situation, property goals, and connect you with the right lenders for your needs.",
+    image: "https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?w=300&h=200&fit=crop",
   },
   {
     number: "02",
-    icon: FileCheck,
-    title: "Document Preparation",
-    description: "Gather required documents: passport, financial proof, background check, health insurance.",
+    icon: FileText,
+    title: "Property Search",
+    description: "Find your ideal Spanish property with our network of trusted real estate agents across all regions.",
+    image: "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=300&h=200&fit=crop",
   },
   {
     number: "03",
-    icon: Home,
-    title: "Visa Application",
-    description: "Submit your application at the Spanish consulate with all required documentation.",
+    icon: FileCheck,
+    title: "Document Preparation",
+    description: "We guide you through all required documentation: proof of income, tax returns, and identity verification.",
+    image: "https://images.unsplash.com/photo-1554224155-6726b3ff858f?w=300&h=200&fit=crop",
   },
   {
     number: "04",
-    icon: Plane,
-    title: "Move to Spain",
-    description: "After visa approval, complete your move within 90 days and register locally.",
+    icon: Home,
+    title: "Mortgage Application",
+    description: "Submit your application to pre-approved lenders and receive competitive offers within weeks.",
+    image: "https://images.unsplash.com/photo-1560520653-9e0e4c89eb11?w=300&h=200&fit=crop",
   },
   {
     number: "05",
     icon: CheckCircle,
-    title: "Settle In",
-    description: "Obtain your NIE, open a bank account, register for healthcare, and start living your Spanish dream.",
+    title: "Signing & Completion",
+    description: "Complete the purchase with notary appointment, final signing, and get your keys to your Spanish home.",
+    image: "https://images.unsplash.com/photo-1560518883-ce09059eeffa?w=300&h=200&fit=crop",
   },
 ];
 
 export function ProcessSection() {
   return (
-    <section className="py-20 bg-background">
+    <section className="py-20 bg-muted/30">
       <div className="container mx-auto px-4">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -48,43 +53,55 @@ export function ProcessSection() {
             Your Roadmap
           </span>
           <h2 className="text-3xl md:text-4xl font-bold text-foreground">
-            Step-by-Step Guide:
-            <span className="block text-primary">Spanish Relocation Process</span>
+            Step-By-Step Guide:
+            <span className="block text-primary">Spanish Mortgage Process</span>
           </h2>
         </motion.div>
 
-        <div className="max-w-4xl mx-auto">
-          {steps.map((step, index) => (
-            <motion.div
-              key={step.number}
-              initial={{ opacity: 0, x: index % 2 === 0 ? -30 : 30 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: index * 0.1 }}
-              className="relative flex gap-6 pb-12 last:pb-0"
-            >
-              {/* Timeline line */}
-              {index < steps.length - 1 && (
-                <div className="absolute left-8 top-16 bottom-0 w-0.5 bg-border" />
-              )}
-
-              {/* Step number circle */}
-              <div className="relative z-10 w-16 h-16 rounded-2xl bg-primary flex items-center justify-center shrink-0">
-                <span className="text-primary-foreground font-bold text-lg">{step.number}</span>
-              </div>
-
-              {/* Content */}
-              <div className="flex-1 bg-card rounded-2xl border border-border p-6 hover:border-primary/30 transition-colors">
-                <div className="flex items-center gap-3 mb-3">
-                  <step.icon className="w-5 h-5 text-primary" />
-                  <h3 className="text-xl font-bold text-card-foreground">{step.title}</h3>
+        <div className="max-w-5xl mx-auto">
+          <div className="grid md:grid-cols-5 gap-4">
+            {steps.map((step, index) => (
+              <motion.div
+                key={step.number}
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: index * 0.1 }}
+                className="relative"
+              >
+                {/* Connector Line */}
+                {index < steps.length - 1 && (
+                  <div className="hidden md:block absolute top-12 left-full w-full h-0.5 bg-border -translate-x-1/2 z-0" />
+                )}
+                
+                <div className="bg-card rounded-xl border border-border overflow-hidden card-hover relative z-10">
+                  {/* Image */}
+                  <div className="relative h-24 overflow-hidden">
+                    <img
+                      src={step.image}
+                      alt={step.title}
+                      className="w-full h-full object-cover"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-foreground/60 to-transparent" />
+                    <div className="absolute top-2 left-2 w-8 h-8 rounded-lg bg-primary flex items-center justify-center">
+                      <span className="text-primary-foreground font-bold text-xs">{step.number}</span>
+                    </div>
+                  </div>
+                  
+                  {/* Content */}
+                  <div className="p-4">
+                    <div className="flex items-center gap-2 mb-2">
+                      <step.icon className="w-4 h-4 text-primary" />
+                      <h3 className="font-semibold text-card-foreground text-sm">{step.title}</h3>
+                    </div>
+                    <p className="text-xs text-muted-foreground leading-relaxed">
+                      {step.description}
+                    </p>
+                  </div>
                 </div>
-                <p className="text-muted-foreground text-base leading-relaxed">
-                  {step.description}
-                </p>
-              </div>
-            </motion.div>
-          ))}
+              </motion.div>
+            ))}
+          </div>
         </div>
       </div>
     </section>

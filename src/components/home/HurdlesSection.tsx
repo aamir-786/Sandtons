@@ -1,21 +1,21 @@
 import { motion } from "framer-motion";
-import { AlertTriangle, FileQuestion, Globe } from "lucide-react";
+import { FileQuestion, Globe, AlertTriangle } from "lucide-react";
 
 const hurdles = [
   {
     icon: FileQuestion,
-    title: "Visa Confusion",
-    description: "Over 7 different visa types with complex eligibility requirements that change frequently.",
+    title: "Unfamiliar Spanish Banking System",
+    description: "Complex documentation requirements and processes that differ significantly from US lending practices.",
   },
   {
     icon: Globe,
-    title: "Language Barriers",
-    description: "Most official processes require Spanish documentation and in-person appointments.",
+    title: "Language and Currency Hurdles",
+    description: "Navigating mortgage terms in Spanish while dealing with Euro-Dollar exchange rate fluctuations.",
   },
   {
     icon: AlertTriangle,
-    title: "Hidden Costs",
-    description: "Unexpected fees, taxes, and requirements that can derail your relocation budget.",
+    title: "Hidden Fees, Taxes & Legal Requirements",
+    description: "Understanding all costs involved including notary fees, registration taxes, and legal requirements.",
   },
 ];
 
@@ -30,7 +30,7 @@ export function HurdlesSection() {
           className="text-center mb-14"
         >
           <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
-            The 3 Biggest Relocation Hurdles
+            The 3 Most Mortgages Hurdles
             <span className="block text-primary">for Americans</span>
           </h2>
         </motion.div>
@@ -43,7 +43,7 @@ export function HurdlesSection() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: index * 0.1 }}
-              className="text-center"
+              className="text-center bg-card rounded-2xl border border-border p-8 card-hover"
             >
               <div className="w-16 h-16 rounded-2xl bg-primary/10 flex items-center justify-center mx-auto mb-5">
                 <hurdle.icon className="w-8 h-8 text-primary" />
