@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
-import { Menu, X, ChevronDown, Phone, Mail } from "lucide-react";
+import { Menu, X, ChevronDown, Phone, Mail, MapPin } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 
@@ -29,7 +29,7 @@ export function Header() {
 
   useEffect(() => {
     const handleScroll = () => {
-      setIsScrolled(window.scrollY > 20);
+      setIsScrolled(window.scrollY > 50);
     };
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
@@ -42,21 +42,25 @@ export function Header() {
 
   return (
     <>
-      {/* Top Bar */}
-      <div className="bg-navy text-primary-foreground py-2 text-sm hidden md:block">
+      {/* Top Contact Bar */}
+      <div className="bg-navy text-primary-foreground py-2 text-xs hidden md:block">
         <div className="container mx-auto px-4 flex items-center justify-between">
           <div className="flex items-center gap-6">
             <a href="mailto:hello@sandtons.com" className="flex items-center gap-2 hover:text-primary transition-colors">
-              <Mail className="w-4 h-4" />
+              <Mail className="w-3 h-3" />
               hello@sandtons.com
             </a>
             <a href="tel:+34912345678" className="flex items-center gap-2 hover:text-primary transition-colors">
-              <Phone className="w-4 h-4" />
+              <Phone className="w-3 h-3" />
               +34 912 345 678
             </a>
+            <span className="flex items-center gap-2 text-primary-foreground/70">
+              <MapPin className="w-3 h-3" />
+              Madrid, Spain
+            </span>
           </div>
-          <div className="flex items-center gap-4">
-            <span className="text-primary-foreground/70">Spanish Mortgage Experts for US Citizens</span>
+          <div className="text-primary-foreground/70">
+            Spanish Mortgage Experts for US Citizens
           </div>
         </div>
       </div>
@@ -64,22 +68,19 @@ export function Header() {
       {/* Main Header */}
       <header
         className={cn(
-          "fixed top-0 md:top-9 left-0 right-0 z-50 transition-all duration-300",
+          "sticky top-0 left-0 right-0 z-50 transition-all duration-300",
           isScrolled
-            ? "bg-background/95 backdrop-blur-md shadow-md py-3"
-            : "bg-navy py-4"
+            ? "bg-background shadow-md py-2"
+            : "bg-background/95 backdrop-blur-sm py-3"
         )}
       >
         <div className="container mx-auto px-4 flex items-center justify-between">
           {/* Logo */}
           <Link to="/" className="flex items-center gap-2">
-            <div className="w-10 h-10 rounded-xl bg-primary flex items-center justify-center">
+            <div className="w-10 h-10 rounded-lg bg-primary flex items-center justify-center">
               <span className="text-primary-foreground font-bold text-xl">S</span>
             </div>
-            <span className={cn(
-              "font-bold text-xl",
-              isScrolled ? "text-foreground" : "text-primary-foreground"
-            )}>Sandtons</span>
+            <span className="font-bold text-xl text-foreground">SANDTONS</span>
           </Link>
 
           {/* Desktop Navigation */}
@@ -95,9 +96,7 @@ export function Header() {
                   <button
                     className={cn(
                       "flex items-center gap-1 px-4 py-2 rounded-lg text-sm font-medium transition-colors",
-                      isScrolled
-                        ? "text-muted-foreground hover:text-foreground hover:bg-muted"
-                        : "text-primary-foreground/80 hover:text-primary-foreground hover:bg-primary-foreground/10"
+                      "text-muted-foreground hover:text-foreground hover:bg-muted"
                     )}
                   >
                     {item.label}
@@ -109,10 +108,8 @@ export function Header() {
                     className={cn(
                       "px-4 py-2 rounded-lg text-sm font-medium transition-colors",
                       location.pathname === item.href
-                        ? "text-primary bg-primary/10"
-                        : isScrolled
-                        ? "text-muted-foreground hover:text-foreground hover:bg-muted"
-                        : "text-primary-foreground/80 hover:text-primary-foreground hover:bg-primary-foreground/10"
+                        ? "text-primary"
+                        : "text-muted-foreground hover:text-foreground hover:bg-muted"
                     )}
                   >
                     {item.label}
@@ -147,23 +144,20 @@ export function Header() {
 
           {/* CTA Button */}
           <div className="hidden md:block">
-            <Button variant="default" size="lg" asChild>
+            <Button variant="default" asChild>
               <Link to="/cost-calculator">Get Started</Link>
             </Button>
           </div>
 
           {/* Mobile Menu Toggle */}
           <button
-            className={cn(
-              "md:hidden p-2 rounded-lg transition-colors",
-              isScrolled ? "hover:bg-muted" : "hover:bg-primary-foreground/10"
-            )}
+            className="md:hidden p-2 rounded-lg hover:bg-muted transition-colors"
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
           >
             {isMobileMenuOpen ? (
-              <X className={cn("w-6 h-6", isScrolled ? "text-foreground" : "text-primary-foreground")} />
+              <X className="w-6 h-6 text-foreground" />
             ) : (
-              <Menu className={cn("w-6 h-6", isScrolled ? "text-foreground" : "text-primary-foreground")} />
+              <Menu className="w-6 h-6 text-foreground" />
             )}
           </button>
         </div>

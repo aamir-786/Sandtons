@@ -13,7 +13,7 @@ const trustBadges = [
 
 export function Hero() {
   return (
-    <section className="relative min-h-[90vh] flex items-center overflow-hidden">
+    <section className="relative min-h-[85vh] flex items-center overflow-hidden">
       {/* Background Image */}
       <div className="absolute inset-0">
         <img
@@ -21,11 +21,11 @@ export function Hero() {
           alt="Couple walking on Spanish beach looking at properties"
           className="w-full h-full object-cover"
         />
-        <div className="absolute inset-0 bg-gradient-to-r from-foreground/80 via-foreground/60 to-foreground/40" />
+        <div className="absolute inset-0 bg-gradient-to-r from-foreground/70 via-foreground/50 to-transparent" />
       </div>
 
-      <div className="container mx-auto px-4 pt-32 pb-20 relative z-10">
-        <div className="max-w-3xl">
+      <div className="container mx-auto px-4 py-20 relative z-10">
+        <div className="max-w-2xl">
           {/* Main Content */}
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -36,7 +36,7 @@ export function Hero() {
               Spanish Mortgages for US Citizens
             </h1>
 
-            <p className="text-lg md:text-xl text-primary-foreground/90 mb-8 max-w-xl leading-relaxed">
+            <p className="text-lg text-primary-foreground/90 mb-8 max-w-lg leading-relaxed">
               Expert guidance to help Americans secure the best mortgage rates in Spain. From application to approval, we make financing your Spanish dream home simple.
             </p>
 
@@ -45,20 +45,20 @@ export function Hero() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.3 }}
-              className="bg-card/95 backdrop-blur-md rounded-2xl p-6 shadow-xl max-w-2xl mb-8"
+              className="bg-card rounded-xl p-5 shadow-lg max-w-xl mb-8"
             >
-              <div className="flex flex-col sm:flex-row gap-4">
-                <div className="flex-1 flex items-center gap-3 px-4 py-3 bg-background rounded-xl border border-border">
+              <div className="flex flex-col sm:flex-row gap-3">
+                <div className="flex-1 flex items-center gap-3 px-4 py-3 bg-background rounded-lg border border-border">
                   <Search className="w-5 h-5 text-muted-foreground" />
                   <input
                     type="text"
                     placeholder="Property value or mortgage amount..."
-                    className="flex-1 bg-transparent text-foreground placeholder:text-muted-foreground focus:outline-none"
+                    className="flex-1 bg-transparent text-foreground placeholder:text-muted-foreground focus:outline-none text-sm"
                   />
                 </div>
-                <Button variant="default" size="lg" asChild>
+                <Button variant="default" asChild>
                   <Link to="/cost-calculator">
-                    <Calculator className="w-5 h-5 mr-2" />
+                    <Calculator className="w-4 h-4 mr-2" />
                     Calculate
                   </Link>
                 </Button>
@@ -86,12 +86,12 @@ export function Hero() {
               transition={{ delay: 0.5 }}
               className="flex flex-wrap gap-6"
             >
-              {trustBadges.map((badge, index) => (
+              {trustBadges.map((badge) => (
                 <div
                   key={badge.label}
                   className="flex items-center gap-2 text-primary-foreground/80"
                 >
-                  <badge.icon className="w-5 h-5 text-primary" />
+                  <badge.icon className="w-4 h-4 text-primary" />
                   <span className="text-sm font-medium">{badge.label}</span>
                 </div>
               ))}

@@ -1,7 +1,6 @@
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
-import { Calculator, FileText, Search, Map, Building, Percent, ArrowRight, Clock } from "lucide-react";
-import { Button } from "@/components/ui/button";
+import { Calculator, FileText, Search, Map, Building, Percent } from "lucide-react";
 import { cn } from "@/lib/utils";
 
 const tools = [
@@ -50,32 +49,39 @@ const tools = [
 ];
 
 const colorMap: Record<string, string> = {
-  primary: "bg-primary text-primary-foreground hover:bg-primary/90",
-  olive: "bg-olive text-primary-foreground hover:bg-olive/90",
-  navy: "bg-navy text-primary-foreground hover:bg-navy/90",
+  primary: "bg-primary text-primary-foreground",
+  olive: "bg-olive text-primary-foreground",
+  navy: "bg-navy text-primary-foreground",
 };
+
+const glanceData = [
+  { label: "Avg. Rate", value: "3.5-4.5%", sublabel: "Fixed rates" },
+  { label: "LTV Ratio", value: "Up to 70%", sublabel: "For non-residents" },
+  { label: "Term Length", value: "15-25 years", sublabel: "Flexible terms" },
+  { label: "Approval Time", value: "4-8 weeks", sublabel: "Average timeline" },
+];
 
 export function ToolsSection() {
   return (
-    <section className="py-20 bg-background">
+    <section className="py-16 bg-background">
       <div className="container mx-auto px-4">
         {/* Header */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="text-center max-w-2xl mx-auto mb-12"
+          className="text-center max-w-2xl mx-auto mb-10"
         >
-          <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
+          <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-3">
             Solve These Instantly
           </h2>
-          <p className="text-muted-foreground text-lg">
+          <p className="text-muted-foreground">
             Free tools to help you navigate Spanish mortgages with confidence.
           </p>
         </motion.div>
 
         {/* Tools Grid */}
-        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4 max-w-5xl mx-auto mb-12">
+        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4 max-w-5xl mx-auto mb-10">
           {tools.map((tool, index) => (
             <motion.div
               key={tool.title}
@@ -112,20 +118,15 @@ export function ToolsSection() {
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="bg-muted/30 rounded-2xl p-8 max-w-4xl mx-auto"
+          className="bg-muted/50 rounded-xl p-6 max-w-4xl mx-auto"
         >
-          <h3 className="text-xl font-bold text-foreground text-center mb-6">
+          <h3 className="text-lg font-bold text-foreground text-center mb-5">
             Mortgages at a Glance Table
           </h3>
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4 text-center">
-            {[
-              { label: "Avg. Rate", value: "3.5-4.5%", sublabel: "Fixed rates" },
-              { label: "LTV Ratio", value: "Up to 70%", sublabel: "For non-residents" },
-              { label: "Term Length", value: "15-25 years", sublabel: "Flexible terms" },
-              { label: "Approval Time", value: "4-8 weeks", sublabel: "Average timeline" },
-            ].map((stat) => (
-              <div key={stat.label} className="bg-card rounded-xl p-4 border border-border">
-                <div className="text-2xl font-bold text-primary mb-1">{stat.value}</div>
+            {glanceData.map((stat) => (
+              <div key={stat.label} className="bg-card rounded-lg p-4 border border-border">
+                <div className="text-xl font-bold text-primary mb-1">{stat.value}</div>
                 <div className="text-sm font-medium text-foreground">{stat.label}</div>
                 <div className="text-xs text-muted-foreground">{stat.sublabel}</div>
               </div>

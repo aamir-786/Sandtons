@@ -1,5 +1,4 @@
 import { motion } from "framer-motion";
-import { Check, X } from "lucide-react";
 
 const mortgageTypes = [
   {
@@ -8,7 +7,6 @@ const mortgageTypes = [
     ltv: "Up to 70%",
     term: "15-30 years",
     bestFor: "Stability seekers",
-    pros: true,
   },
   {
     name: "Variable Rate",
@@ -16,7 +14,6 @@ const mortgageTypes = [
     ltv: "Up to 70%",
     term: "15-30 years",
     bestFor: "Risk tolerant",
-    pros: true,
   },
   {
     name: "Mixed Rate",
@@ -24,7 +21,6 @@ const mortgageTypes = [
     ltv: "Up to 70%",
     term: "15-30 years",
     bestFor: "Balanced approach",
-    pros: true,
   },
   {
     name: "Interest Only",
@@ -32,23 +28,19 @@ const mortgageTypes = [
     ltv: "Up to 60%",
     term: "5-10 years",
     bestFor: "Investors",
-    pros: false,
   },
 ];
 
 export function ComparisonTable() {
   return (
-    <section className="py-20 bg-background">
+    <section className="py-16 bg-background">
       <div className="container mx-auto px-4">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="text-center mb-14"
+          className="text-center mb-10"
         >
-          <span className="text-primary font-semibold text-sm uppercase tracking-wider mb-4 block">
-            Mortgage Types
-          </span>
           <h2 className="text-3xl md:text-4xl font-bold text-foreground">
             Spain Mortgage Types & Costs
           </h2>
@@ -60,14 +52,14 @@ export function ComparisonTable() {
           viewport={{ once: true }}
           className="max-w-5xl mx-auto overflow-x-auto"
         >
-          <table className="w-full bg-card rounded-2xl border border-border overflow-hidden">
+          <table className="w-full bg-card rounded-xl border border-border overflow-hidden">
             <thead>
               <tr className="bg-primary text-primary-foreground">
-                <th className="px-6 py-4 text-left font-semibold">Mortgage Type</th>
-                <th className="px-6 py-4 text-left font-semibold">Interest Rate</th>
-                <th className="px-6 py-4 text-left font-semibold">Max LTV</th>
-                <th className="px-6 py-4 text-left font-semibold">Term</th>
-                <th className="px-6 py-4 text-left font-semibold">Best For</th>
+                <th className="px-5 py-3 text-left font-semibold text-sm">Mortgage Type</th>
+                <th className="px-5 py-3 text-left font-semibold text-sm">Interest Rate</th>
+                <th className="px-5 py-3 text-left font-semibold text-sm">Max LTV</th>
+                <th className="px-5 py-3 text-left font-semibold text-sm">Term</th>
+                <th className="px-5 py-3 text-left font-semibold text-sm">Best For</th>
               </tr>
             </thead>
             <tbody>
@@ -76,12 +68,12 @@ export function ComparisonTable() {
                   key={mortgage.name}
                   className={index % 2 === 0 ? "bg-card" : "bg-muted/30"}
                 >
-                  <td className="px-6 py-4 font-semibold text-card-foreground">{mortgage.name}</td>
-                  <td className="px-6 py-4 text-muted-foreground">{mortgage.rate}</td>
-                  <td className="px-6 py-4 text-muted-foreground">{mortgage.ltv}</td>
-                  <td className="px-6 py-4 text-muted-foreground">{mortgage.term}</td>
-                  <td className="px-6 py-4">
-                    <span className="px-3 py-1 rounded-full bg-primary/10 text-primary text-sm font-medium">
+                  <td className="px-5 py-3 font-semibold text-card-foreground text-sm">{mortgage.name}</td>
+                  <td className="px-5 py-3 text-muted-foreground text-sm">{mortgage.rate}</td>
+                  <td className="px-5 py-3 text-muted-foreground text-sm">{mortgage.ltv}</td>
+                  <td className="px-5 py-3 text-muted-foreground text-sm">{mortgage.term}</td>
+                  <td className="px-5 py-3">
+                    <span className="px-3 py-1 rounded-full bg-primary/10 text-primary text-xs font-medium">
                       {mortgage.bestFor}
                     </span>
                   </td>
@@ -91,16 +83,14 @@ export function ComparisonTable() {
           </table>
         </motion.div>
 
-        {/* Additional Info */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="max-w-3xl mx-auto mt-8 text-center"
+          className="max-w-3xl mx-auto mt-6 text-center"
         >
-          <p className="text-muted-foreground text-sm">
+          <p className="text-muted-foreground text-xs">
             * Rates and terms are indicative and vary by lender. Non-resident buyers typically qualify for 60-70% LTV.
-            Contact us for personalized quotes.
           </p>
         </motion.div>
       </div>
