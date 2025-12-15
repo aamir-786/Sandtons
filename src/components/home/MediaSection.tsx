@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { Play, Headphones, BookOpen, ExternalLink } from "lucide-react";
+import { Play, Headphones, BookOpen } from "lucide-react";
 
 const mediaItems = [
   {
@@ -38,15 +38,15 @@ const mediaItems = [
 
 export function MediaSection() {
   return (
-    <section className="py-20 bg-muted/50">
+    <section className="py-16 bg-muted/30">
       <div className="container mx-auto px-4">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="text-center mb-14"
+          className="text-center mb-10"
         >
-          <span className="text-primary font-semibold text-sm uppercase tracking-wider mb-4 block">
+          <span className="text-primary font-semibold text-xs uppercase tracking-wider mb-2 block">
             Media
           </span>
           <h2 className="text-3xl md:text-4xl font-bold text-foreground">
@@ -54,7 +54,7 @@ export function MediaSection() {
           </h2>
         </motion.div>
 
-        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 max-w-6xl mx-auto">
+        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-5 max-w-6xl mx-auto">
           {mediaItems.map((item, index) => (
             <motion.a
               key={item.title}
@@ -69,15 +69,15 @@ export function MediaSection() {
                 <img
                   src={item.image}
                   alt={item.title}
-                  className="w-full h-40 object-cover"
+                  className="w-full h-36 object-cover"
                 />
                 <div className="absolute inset-0 bg-foreground/40 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
-                  <div className="w-14 h-14 rounded-full bg-primary flex items-center justify-center">
-                    <item.icon className="w-6 h-6 text-primary-foreground" />
+                  <div className="w-12 h-12 rounded-full bg-primary flex items-center justify-center">
+                    <item.icon className="w-5 h-5 text-primary-foreground" />
                   </div>
                 </div>
-                <div className="absolute top-3 left-3">
-                  <span className="px-2 py-1 rounded-md bg-card/90 text-xs font-medium text-foreground">
+                <div className="absolute top-2 left-2">
+                  <span className="px-2 py-1 rounded bg-card/90 text-xs font-medium text-foreground">
                     {item.duration}
                   </span>
                 </div>
